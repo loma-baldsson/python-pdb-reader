@@ -1,0 +1,15 @@
+# python-pdb-reader
+A (currently unfinished) python interface for the Palm DB format.
+
+## Usage
+Since it's unfinished, I'm not going to document anything now. Documentation will come later.
+
+`main.py` and contents in `test/` are all for testing purposes. If you're interested in using the code in this repo, feel free to ignore both of those.
+
+## Sources
+- [Wikipedia page on PDB files](https://en.wikipedia.org/wiki/PDB_(Palm_OS))
+- [MobileRead wiki page on PDB files](https://wiki.mobileread.com/wiki/PDB)
+- [A perl module for reading PDB files](https://metacpan.org/release/CJM/Palm-PDB-1.400/view/lib/Palm/PDB.pm) and [its source code](https://metacpan.org/dist/Palm-PDB/source/lib/Palm/PDB.pm)
+- ["The Pilot Record Database Format"](http://membres.lycos.fr/microfirst/palm/pdb.html) ([archive](https://web.archive.org/web/20090315213538/http://membres.lycos.fr/microfirst/palm/pdb.html))
+
+i like pie
