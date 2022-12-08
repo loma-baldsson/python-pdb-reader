@@ -12,8 +12,8 @@ If you're interested in using the code in this repo, feel free to ignore both of
 - [MobileRead wiki page on PDB files](https://wiki.mobileread.com/wiki/PDB)
 - [A perl module for reading PDB files](https://metacpan.org/release/CJM/Palm-PDB-1.400/view/lib/Palm/PDB.pm) and [its source code](https://metacpan.org/dist/Palm-PDB/source/lib/Palm/PDB.pm)
 - ["The Pilot Record Database Format"](http://membres.lycos.fr/microfirst/palm/pdb.html) 
-- - [Archive](https://web.archive.org/web/20090315213538/http://membres.lycos.fr/microfirst/palm/pdb.html)
-- [A Github reupload of the Palm OS SDK](https://github.com/jichu4n/palm-os-sdk/tree/master/sdk-5r4) 
-- - [Archive](https://archive.org/details/palm-os-sdk)
+  - [Archive](https://web.archive.org/web/20090315213538/http://membres.lycos.fr/microfirst/palm/pdb.html)
+- [A GitHub reupload of the Palm OS SDK](https://github.com/jichu4n/palm-os-sdk/tree/master/sdk-5r4) 
+  - [Archive](https://archive.org/details/palm-os-sdk)
 
 i like pie
