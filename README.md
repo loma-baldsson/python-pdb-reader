@@ -4,7 +4,7 @@ A (currently unfinished) python interface for the Palm DB format.
 ## Usage
 Since it's unfinished, I'm not going to document anything now. Documentation will come later.
 
-`main.py` and contents in `test/` are all for testing purposes. 
+`main.py` and all contents in `test/` are all for testing purposes. 
 If you're interested in using the code in this repo, feel free to ignore both of those.
 
 ## Sources
