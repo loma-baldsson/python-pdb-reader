@@ -20,6 +20,6 @@ def put_dword(file, val):
 
 def put_string(file, val, length, requires_terminator=False):
     if len(val) > length-1 and requires_terminator:
-        raise PDBWriteError()
+        raise PDBWriteError("String not long enough to add null terminator")
 
     return file.write(val.ljust(length, "\0").encode("ascii"))
