@@ -1,12 +1,31 @@
-import datetime
+from datetime import datetime, timedelta
 
 # Jan 1, 1904
-PALM_EPOCH = datetime.datetime(1904, 1, 1)
+PALM_EPOCH = datetime(1904, 1, 1)
+
+UNIX_TIME = 0
+PALM_TIME = 1
 
 
-def palm_to_datetime(palm_time):
-    return PALM_EPOCH + datetime.timedelta(seconds=palm_time)
+def detect_timestamp_time(timestamp):
+    # get top bit of a 32-bit integer
+    # if it's set, it uses palm time
+    # if it's clear, it uses unix time
+    # fortunately the enum's values account for this
+    return timestamp >> (32-1)
+
+
+def palm_to_datetime(timestamp, force_palm_time=False):
+    # TODO: Detect the correct epoch (Palm Epoch or Unix Epoch) and use that
+    # according to various sources both are used depending
+    # on the os used for creating the .pdb file
+    if detect_timestamp_time(timestamp) == PALM_TIME or force_palm_time:
+        return PALM_EPOCH + timedelta(seconds=timestamp)
+    else:
+        return datetime.fromtimestamp(timestamp)
 
 
 def datetime_to_palm(time):
     return int((time - PALM_EPOCH).total_seconds())
+
+# TODO: add tests for detect_timestamp_time() and palm_to_datetime()
