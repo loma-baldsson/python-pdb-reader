@@ -15,5 +15,6 @@ If you're interested in using the code in this repo, feel free to ignore both of
   - [Archive](https://web.archive.org/web/20090315213538/http://membres.lycos.fr/microfirst/palm/pdb.html)
 - [A GitHub reupload of the Palm OS SDK](https://github.com/jichu4n/palm-os-sdk/tree/master/sdk-5r4) 
   - [Archive](https://archive.org/details/palm-os-sdk)
+- [palmdump](https://www.fourmilab.ch/palm/palmdump/) and its source code
 
 i like pie
