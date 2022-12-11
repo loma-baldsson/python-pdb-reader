@@ -1,5 +1,5 @@
-from pdbread import get_byte, get_word, get_dword, get_string
-from pdbwrite import put_byte, put_word, put_dword, put_string
+from pdbread import get_word, get_dword, get_string
+from pdbwrite import put_word, put_dword, put_string
 
 
 class PDBHeader:
