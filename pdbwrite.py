@@ -2,20 +2,20 @@ class PDBWriteError(Exception):
     pass
 
 
-def _put_int(file, val, length):
+def put_int(file, val, length):
     return file.write(val.to_bytes(length, "big"))
 
 
 def put_byte(file, val):
-    return _put_int(file, val, 1)
+    return put_int(file, val, 1)
 
 
 def put_word(file, val):
-    return _put_int(file, val, 2)
+    return put_int(file, val, 2)
 
 
 def put_dword(file, val):
-    return _put_int(file, val, 4)
+    return put_int(file, val, 4)
 
 
 def put_string(file, val, length, requires_terminator=False):
