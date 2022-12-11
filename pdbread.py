@@ -2,20 +2,20 @@ class PDBReadError(Exception):
     pass
 
 
-def _get_int(file, length):
+def get_int(file, length):
     return int.from_bytes(file.read(length), "big")
 
 
 def get_byte(file):
-    return _get_int(file, 1)
+    return get_int(file, 1)
 
 
 def get_word(file):
-    return _get_int(file, 2)
+    return get_int(file, 2)
 
 
 def get_dword(file):
-    return _get_int(file, 4)
+    return get_int(file, 4)
 
 
 def get_string(file, length, has_terminator=False):
