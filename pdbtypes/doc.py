@@ -1,2 +1,5 @@
-def doc(func, cls, *args):
-    return cls(*args, func.__doc__)
+def doc(cls, *args):
+    def wrapper(func):
+        return cls(*args, func.__doc__)
+
+    return wrapper
