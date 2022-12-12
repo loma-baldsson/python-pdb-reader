@@ -1,9 +1,7 @@
-class NullTerminatedString:
-    def __init__(self, attr_name, max_length, docs=""):
-        self._attr_name = attr_name
-        self._length = max_length
-        self.__docs__ = docs
+from fixed_length_string import FixedLengthString
 
+
+class NullTerminatedString(FixedLengthString):
     def __get__(self, instance, owner=None):
         str_value = getattr(instance, self._attr_name).decode("ascii")
         return str_value.split("\0")[0]
@@ -16,9 +14,6 @@ class NullTerminatedString:
 
         byte_val = value.ljust(32, "\0").encode("ascii")
         setattr(instance, self._attr_name, byte_val)
-
-    def __delete__(self, instance):
-        raise AttributeError("Can't delete attribute")
 
 
 class NullTerminatedStringBytes(NullTerminatedString):
