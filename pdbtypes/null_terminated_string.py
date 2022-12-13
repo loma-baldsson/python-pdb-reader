@@ -2,6 +2,9 @@ from .fixed_length_string import FixedLengthString, FixedLengthStringBytes
 
 
 class NullTerminatedString(FixedLengthString):
+    def get_default(self):
+        return ""
+
     def getter(self, value):
         decoded_value = super().getter(value)
         return decoded_value.split("\0")[0]

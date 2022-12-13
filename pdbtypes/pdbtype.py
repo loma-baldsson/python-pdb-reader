@@ -12,8 +12,11 @@ class PDBType:
         self._attr_name = attr_name
 
     def __get__(self, instance, owner=None):
-        value = getattr(instance, self._attr_name)
-        return self._type_instance.getter(value)
+        if self._attr_name in dir(instance):
+            value = getattr(instance, self._attr_name)
+            return self._type_instance.getter(value)
+
+        return self._type_instance.get_default()
 
     def __set__(self, instance, value):
         old_value = getattr(instance, self._attr_name)

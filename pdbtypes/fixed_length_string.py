@@ -2,6 +2,9 @@ from .pdb_type_base import PDBTypeBase, PDBTypeBaseBytes
 
 
 class FixedLengthString(PDBTypeBase):
+    def get_default(self):
+        return " " * self._size
+
     def getter(self, value):
         return value.decode("ascii")
 

@@ -2,6 +2,9 @@ from .pdb_type_base import PDBTypeBase, PDBTypeBaseBytes
 
 
 class BigEndianInt(PDBTypeBase):
+    def get_default(self):
+        return 0
+
     def getter(self, value):
         return int.from_bytes(value, "big")
 

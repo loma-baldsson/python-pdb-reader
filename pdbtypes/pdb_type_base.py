@@ -2,6 +2,9 @@ class PDBTypeBase:
     def __init__(self, size):
         self._size = size
 
+    def get_default(self):
+        raise AttributeError(f"No default value for type {type(self).__name__}")
+
     def getter(self, value):
         raise AttributeError(f"No getter for attribute of type {type(self).__name__}")
 
@@ -13,6 +16,9 @@ class PDBTypeBase:
 
 
 class PDBTypeBaseBytes(PDBTypeBase):
+    def get_default(self):
+        return b"\0" * self._size
+
     def getter(self, value):
         return value
 
