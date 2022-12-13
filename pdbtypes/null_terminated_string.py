@@ -1,27 +1,19 @@
-from fixed_length_string import FixedLengthString
+from .fixed_length_string import FixedLengthString, FixedLengthStringBytes
 
 
 class NullTerminatedString(FixedLengthString):
-    def __get__(self, instance, owner=None):
-        str_value = getattr(instance, self._attr_name).decode("ascii")
-        return str_value.split("\0")[0]
+    def getter(self, value):
+        decoded_value = super().getter(value)
+        return decoded_value.split("\0")[0]
 
-    def __set__(self, instance, value):
+    def setter(self, old_value, value):
         assert isinstance(value, str), "Value isn't a string"
         assert len(value) < self._length, f"Length is over maximum ({self._length})"
-        assert value.find("\0") == -1, r"Early null char ('\0') was found"
         assert value.isascii(), "Value isn't ascii"
+        assert value.find("\0") == -1, r"Early null char ('\0') was found"
 
-        byte_val = value.ljust(32, "\0").encode("ascii")
-        setattr(instance, self._attr_name, byte_val)
+        return value.ljust(32, "\0").encode("ascii")
 
 
-class NullTerminatedStringBytes(NullTerminatedString):
-    def __get__(self, instance, owner=None):
-        return getattr(instance, self._attr_name)
-
-    def __set__(self, instance, value):
-        assert isinstance(value, bytes), "Value isn't a byte sequence"
-        assert len(value) == self._length, f"Value isn't the correct length ({self._length})"
-
-        setattr(instance, self._attr_name, value)
+class NullTerminatedStringBytes(FixedLengthStringBytes):
+    pass
