@@ -4,24 +4,29 @@ import pprint
 
 from pdbheader import PDBHeader
 from pdbconvert import palm_to_datetime, datetime_to_palm
-from pdbtypes.null_terminated_string import NullTerminatedString
-from pdbtypes.doc import doc
+from pdbtypes import pdbtype, FixedLengthString
+from pypalm.pdbtypes import FixedLengthStringBytes
 
 
 class Test:
     def __init__(self):
-        self._name = b""
+        self._x = b""
 
-    @doc(NullTerminatedString, "_name", 32)
-    def item(self):
+    @pdbtype(FixedLengthString(5), "_x")
+    def x(self):
         """Hello"""
+
+    @pdbtype(FixedLengthStringBytes(5), "_x")
+    def x_bytes(self):
+        """Bytes of x"""
 
 
 def main():
     test = Test()
-    print(test.item)
-    test.item = "Hello"
-    print(test.item)
+    print(test.x)
+    test.x = "Hello"
+    print(test.x)
+    print(test.x_bytes)
     # filename = sys.argv[1] if len(sys.argv) > 1 else "./test/test.pdb"
     # with open(filename, "rb") as f:
     #     header = PDBHeader.load_from_file(f)
