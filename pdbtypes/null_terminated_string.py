@@ -8,7 +8,7 @@ class NullTerminatedString(FixedLengthString):
 
     def setter(self, old_value, value):
         assert isinstance(value, str), "Value isn't a string"
-        assert len(value) < self._length, f"Length is over maximum ({self._length})"
+        assert len(value) < self._size, f"Length is over maximum ({self._size})"
         assert value.isascii(), "Value isn't ascii"
         assert value.find("\0") == -1, r"Early null char ('\0') was found"
 

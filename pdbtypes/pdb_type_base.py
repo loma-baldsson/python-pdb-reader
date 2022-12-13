@@ -1,6 +1,6 @@
 class PDBTypeBase:
-    def __init__(self, length):
-        self._length = length
+    def __init__(self, size):
+        self._size = size
 
     def getter(self, value):
         raise AttributeError(f"No getter for attribute of type {type(self).__name__}")
@@ -18,6 +18,6 @@ class PDBTypeBaseBytes(PDBTypeBase):
 
     def setter(self, old_value, value):
         assert isinstance(value, bytes), "Value isn't a byte sequence"
-        assert len(value) == self._length, f"Value isn't the correct length ({self._length})"
+        assert len(value) == self._size, f"Value isn't the correct length ({self._size})"
 
         return value
