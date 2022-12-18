@@ -1,4 +1,4 @@
-from .pdb_type_base import PDBTypeBase
+from .pdbtype_base import PDBTypeBase
 
 
 class BigEndianInt(PDBTypeBase):
