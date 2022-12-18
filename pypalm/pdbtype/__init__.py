@@ -1,6 +1,3 @@
-# template
-from .pdbtypes_template import *
-
 # base
 from .pdbtype_base import *
 
