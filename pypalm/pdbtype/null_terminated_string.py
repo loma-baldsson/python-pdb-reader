@@ -1,4 +1,4 @@
-from .fixed_length_string import FixedLengthString
+from . import FixedLengthString
 
 
 class NullTerminatedString(FixedLengthString):

@@ -1,4 +1,4 @@
-from .pdbtype_base import PDBTypeBase
+from . import PDBTypeBase
 
 
 class FixedLengthString(PDBTypeBase):

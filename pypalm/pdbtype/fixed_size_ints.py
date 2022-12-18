@@ -1,4 +1,4 @@
-from .big_endian_int import BigEndianInt
+from . import BigEndianInt
 
 
 class Byte(BigEndianInt):
