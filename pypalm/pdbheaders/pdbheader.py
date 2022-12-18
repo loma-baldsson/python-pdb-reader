@@ -1,8 +1,7 @@
-from .. import NullTerminatedString, FixedLengthString, Word, DWord, PalmTime, template_wrapper
+from .. import NullTerminatedString, FixedLengthString, Word, DWord, PalmTime, Template
 
 
-@template_wrapper
-class PDBHeader:
+class PDBHeader(Template):
     def __init__(self):
         self._items = {
             "name": NullTerminatedString(32),

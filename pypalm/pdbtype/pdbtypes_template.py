@@ -1,14 +1,6 @@
 BYTES_SUFFIX = "_bytes"
 
 
-def template_wrapper(cls):
-    cls.__getattr__ = Template.__getattr__
-    cls.__setattr__ = Template.__setattr__
-    cls.__delattr__ = Template.__delattr__
-    cls.__dir__ = Template.__dir__
-    return cls
-
-
 class Template:
     def __getattr__(self, item):
         if not Template.has_initialized(self):

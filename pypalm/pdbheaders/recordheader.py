@@ -1,8 +1,7 @@
-from .. import BigEndianInt, Byte, DWord, template_wrapper
+from .. import BigEndianInt, Byte, DWord, Template
 
 
-@template_wrapper
-class RecordHeader:
+class RecordHeader(Template):
     def __init__(self):
         self._items = {
             "offset": DWord(),
