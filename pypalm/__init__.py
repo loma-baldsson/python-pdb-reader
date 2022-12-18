@@ -6,3 +6,4 @@ from .pdbtype.fixed_size_ints import *
 from .pdbtype.null_terminated_string import *
 from .pdbtype.pdbtype_base import *
 from .pdbtype.pdbtypes_template import *
+from .pdbtype.palm_time import *
