@@ -1,7 +1,8 @@
 import sys
 
-from pypalm.pdbtype import FixedLengthString, NullTerminatedString, BigEndianInt, PalmTime, Template
+from pypalm.pdbtype import FixedLengthString, NullTerminatedString, BigEndianInt, PalmTime
 from pypalm.pdbheaders import PDBHeader, RecordHeader
+from pypalm.pdbtemplates import Template
 
 
 class Test(Template):
