@@ -52,6 +52,15 @@ class Template:
 
         return list(object.__dir__(self)) + list(self._items.keys())
 
+    def __str__(self):
+        out = ""
+
+        for key, item in self._items.items():
+            val = item.getter()
+            out += f"{key}: {val!r}\n"
+
+        return out
+
     def has_initialized(self):
         try:
             _ = object.__getattribute__(self, "_items")
@@ -75,12 +84,3 @@ class FileLoadedTemplate(Template):
     def write_to_file(self, file):
         for item in self._items.values():
             file.write(item.getter_bytes())
-
-    def __str__(self):
-        out = ""
-
-        for key, item in self._items.items():
-            val = item.getter()
-            out += f"{key}: {val!r}\n"
-
-        return out
