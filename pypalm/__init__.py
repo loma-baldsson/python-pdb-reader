@@ -9,4 +9,5 @@ from .pdbtype.pdbtypes_template import *
 from .pdbtype.palm_time import *
 
 # put at end as a band-aid fix for circular imports
-from .pdbheader.pdbheader import *
+from .pdbheaders.pdbheader import *
+from .pdbheaders.recordheader import *
