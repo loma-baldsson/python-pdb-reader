@@ -1,9 +1,10 @@
 import datetime
 import sys
+from os import path
 
-from pypalm.pdbtype import FixedLengthString, NullTerminatedString, BigEndianInt, PalmTime
-from pypalm.pdbheaders import PDBHeader, RecordHeader
-from pypalm.pdbtemplates import Template
+from pypalm import FixedLengthString, NullTerminatedString, BigEndianInt, PalmTime
+from pypalm import PDBHeader, RecordHeader
+from pypalm import Template
 
 
 class Test(Template):
@@ -42,7 +43,11 @@ def test_template():
 
 
 def main():
-    filename = sys.argv[1] if len(sys.argv) > 1 else "./test_pdbs/test.pdb"
+    # taken from https://stackoverflow.com/a/4381638
+    basepath = path.dirname(__file__)
+    filepath = path.abspath(path.join(basepath, "pdbs", "test.pdb"))
+
+    filename = sys.argv[1] if len(sys.argv) > 1 else filepath
     with open(filename, "rb") as f:
         header = PDBHeader.load_from_file(f)
 
