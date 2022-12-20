@@ -9,6 +9,7 @@ from pypalm import Template
 
 class Test(Template):
     def __init__(self, **kwargs):
+        super().__init__()
         self._items = {
             "x": FixedLengthString(16),
             "y": NullTerminatedString(16),
@@ -16,7 +17,7 @@ class Test(Template):
             "date": PalmTime()
         }
 
-        super().__init__(**kwargs)
+        self.load_values(**kwargs)
 
 
 def test_template():

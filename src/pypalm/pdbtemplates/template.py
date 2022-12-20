@@ -1,12 +1,9 @@
+from .. import PDBTypeBase
+
 BYTES_SUFFIX = "_bytes"
 
 
 class Template:
-    def __init__(self, **kwargs):
-        for key, value in kwargs.items():
-            if key in self._items:
-                self._items[key].setter(value)
-
     def __getattr__(self, item):
         if not Template.has_initialized(self):
             return object.__getattribute__(self, item)
@@ -73,6 +70,13 @@ class Template:
             out += f"{key}: {val!r}\n"
 
         return out
+
+    def load_values(self, **kwargs):
+        for key, value in kwargs.items():
+            if key in self._items:
+                self._items[key].setter(value)
+            else:
+                raise AttributeError(f"Object of type '{type(self).__name__}' has no attribute '{key}'")
 
     def has_initialized(self):
         try:
