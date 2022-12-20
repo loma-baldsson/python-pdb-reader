@@ -9,14 +9,14 @@ from pypalm import Template
 
 class Test(Template):
     def __init__(self, **kwargs):
-        items = {
+        self._items = {
             "x": FixedLengthString(16),
             "y": NullTerminatedString(16),
             "z": BigEndianInt(2),
             "date": PalmTime()
         }
 
-        super().__init__(items, **kwargs)
+        super().__init__(**kwargs)
 
 
 def test_template():

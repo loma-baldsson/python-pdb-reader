@@ -2,12 +2,10 @@ BYTES_SUFFIX = "_bytes"
 
 
 class Template:
-    def __init__(self, items, **kwargs):
+    def __init__(self, **kwargs):
         for key, value in kwargs.items():
-            if key in items:
-                items[key].setter(value)
-
-        self._items = items
+            if key in self._items:
+                self._items[key].setter(value)
 
     def __getattr__(self, item):
         if not Template.has_initialized(self):
