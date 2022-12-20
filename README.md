@@ -1,11 +1,23 @@
 # python-pdb-reader
 A (currently unfinished) python interface for the Palm DB format.
 
+## Installation
+Simply run the following bash commands:
+```bash
+# Clone the repo
+$ git clone https://github.com/loma-baldsson/python-pdb-reader.git
+$ cd python-pdb-reader
+
+# Install
+$ python -m pip install .
+```
+
 ## Usage
 Since it's unfinished, I'm not going to document anything now. Documentation will come later.
 
-`main.py` and all contents in `test/` are all for testing purposes. 
-If you're interested in using the code in this repo, feel free to ignore both of those.
+
+If you're interested in using the code in this repo, feel free to ignore the `examples/` directory.
+Those are just there for manual testing.
 
 ## Sources
 - [Wikipedia page on PDB files](https://en.wikipedia.org/wiki/PDB_(Palm_OS))
