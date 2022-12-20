@@ -59,6 +59,14 @@ class Template:
 
         return list(object.__dir__(self)) + list(self._items.keys())
 
+    def __repr__(self):
+        out_kwargs = []
+        for key, item in self._items.items():
+            if item.getter() != item.get_default():
+                out_kwargs.append(f"{key}={item.getter()!r}")
+
+        return f"{type(self).__name__}({', '.join(out_kwargs)})"
+
     def __str__(self):
         out = ""
 
