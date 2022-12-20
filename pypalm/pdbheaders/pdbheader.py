@@ -2,8 +2,8 @@ from .. import NullTerminatedString, FixedLengthString, Word, DWord, PalmTime, F
 
 
 class PDBHeader(FileLoadedTemplate):
-    def __init__(self):
-        self._items = {
+    def __init__(self, **kwargs):
+        items = {
             "name": NullTerminatedString(32),
             "attributes": Word(),
             "version": Word(),
@@ -19,3 +19,5 @@ class PDBHeader(FileLoadedTemplate):
             "next_record_id": DWord(),
             "num_records": Word(),
         }
+
+        super().__init__(items, **kwargs)
