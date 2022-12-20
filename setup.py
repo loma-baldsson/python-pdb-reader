@@ -33,10 +33,7 @@ setup(
     keywords="palm, palmos, palm os, pdb",
     package_dir={"": "src"},
     packages=find_packages(where="src"),
-    python_requires=">=3.10, <4",
-    extras_require={
-        "test": ["pytest"],
-    },
+    install_requires=["pytest", "typing-extensions"],
     project_urls={
         "Bug Reports": "https://github.com/loma-baldsson/python-pdb-reader/issues",
     },
