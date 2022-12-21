@@ -2,13 +2,13 @@ from . import PDBTypeBase
 
 
 class FixedLengthString(PDBTypeBase):
-    def get_default(self):
+    def get_default(self) -> str:
         return " " * self._size
 
-    def getter(self):
+    def getter(self) -> str:
         return self._value.decode("ascii")
 
-    def setter(self, value):
+    def setter(self, value: str) -> None:
         assert isinstance(value, str), "Value isn't a string"
         assert len(value) == self._size, f"Value isn't the correct length ({self._size})"
         assert value.isascii(), "Value isn't ascii"

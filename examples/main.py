@@ -1,16 +1,17 @@
 import datetime
 import sys
 from os import path
+from typing import Any
 
-from pypalm import FixedLengthString, NullTerminatedString, BigEndianInt, PalmTime
-from pypalm import PDBHeader, RecordHeader
-from pypalm import Template
+from pypalm.pdbtype import FixedLengthString, NullTerminatedString, BigEndianInt, PalmTime, PDBTypeBase
+from pypalm.pdbheaders import PDBHeader, RecordHeader
+from pypalm.pdbtemplates import Template
 
 
 class Test(Template):
-    def __init__(self, **kwargs):
+    def __init__(self, **kwargs: Any):
         super().__init__()
-        self._items = {
+        self._items: dict[str, PDBTypeBase] = {
             "x": FixedLengthString(16),
             "y": NullTerminatedString(16),
             "z": BigEndianInt(2),

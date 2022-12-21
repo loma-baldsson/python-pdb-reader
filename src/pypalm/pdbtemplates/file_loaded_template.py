@@ -1,9 +1,13 @@
+from typing import BinaryIO
+
+from typing_extensions import Self
+
 from . import Template
 
 
 class FileLoadedTemplate(Template):
     @classmethod
-    def load_from_file(cls, file):
+    def load_from_file(cls, file: BinaryIO) -> Self:
         self = cls()
 
         for key, item in self._items.items():
@@ -12,6 +16,6 @@ class FileLoadedTemplate(Template):
 
         return self
 
-    def write_to_file(self, file):
+    def write_to_file(self, file: BinaryIO) -> None:
         for item in self._items.values():
             file.write(item.getter_bytes())

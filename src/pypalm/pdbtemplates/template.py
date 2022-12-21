@@ -1,10 +1,15 @@
+from typing import Any, Iterable
+
 from .. import PDBTypeBase
 
 BYTES_SUFFIX = "_bytes"
 
 
 class Template:
-    def __getattr__(self, item):
+    def __init__(self):
+        self._items: dict[str, PDBTypeBase]
+
+    def __getattr__(self, item: str) -> Any:
         if not Template.has_initialized(self):
             return object.__getattribute__(self, item)
 
@@ -19,7 +24,7 @@ class Template:
         else:
             return object.__getattribute__(self, item)
 
-    def __setattr__(self, key, value):
+    def __setattr__(self, key: str, value: Any) -> None:
         if not Template.has_initialized(self):
             object.__setattr__(self, key, value)
             return
@@ -35,7 +40,7 @@ class Template:
         else:
             object.__setattr__(self, key, value)
 
-    def __delattr__(self, item):
+    def __delattr__(self, item: str) -> None:
         if not Template.has_initialized(self):
             object.__delattr__(self, item)
             return
@@ -48,13 +53,13 @@ class Template:
         else:
             object.__delattr__(self, item)
 
-    def __dir__(self):
+    def __dir__(self) -> Iterable[str]:
         if not Template.has_initialized(self):
             return object.__dir__(self)
 
         return list(object.__dir__(self)) + list(self._items.keys())
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         out_kwargs = []
         for key, item in self._items.items():
             if item.getter() != item.get_default():
@@ -62,7 +67,7 @@ class Template:
 
         return f"{type(self).__name__}({', '.join(out_kwargs)})"
 
-    def __str__(self):
+    def __str__(self) -> str:
         out = ""
 
         for key, item in self._items.items():
@@ -78,7 +83,7 @@ class Template:
             else:
                 raise AttributeError(f"Object of type '{type(self).__name__}' has no attribute '{key}'")
 
-    def has_initialized(self):
+    def has_initialized(self) -> bool:
         try:
             _ = object.__getattribute__(self, "_items")
         except AttributeError:

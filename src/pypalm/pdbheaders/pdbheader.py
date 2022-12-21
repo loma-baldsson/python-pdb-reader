@@ -1,10 +1,12 @@
-from .. import NullTerminatedString, FixedLengthString, Word, DWord, PalmTime, FileLoadedTemplate
+from typing import Any
+
+from .. import NullTerminatedString, FixedLengthString, Word, DWord, PalmTime, FileLoadedTemplate, PDBTypeBase
 
 
 class PDBHeader(FileLoadedTemplate):
-    def __init__(self, **kwargs):
+    def __init__(self, **kwargs: Any):
         super().__init__()
-        self._items = {
+        self._items: dict[str, PDBTypeBase] = {
             "name": NullTerminatedString(32),
             "attributes": Word(),
             "version": Word(),
