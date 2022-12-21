@@ -2,15 +2,15 @@ from . import BigEndianInt
 
 
 class Byte(BigEndianInt):
-    def __init__(self, *args):
-        super().__init__(1, *args)
+    def __init__(self):
+        super().__init__(1)
 
 
 class Word(BigEndianInt):
-    def __init__(self, *args):
-        super().__init__(2, *args)
+    def __init__(self):
+        super().__init__(2)
 
 
 class DWord(BigEndianInt):
-    def __init__(self, *args):
-        super().__init__(4, *args)
+    def __init__(self):
+        super().__init__(4)
