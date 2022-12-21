@@ -19,7 +19,5 @@ class PalmTime(PDBTypeBase):
 
     def setter(self, value: datetime) -> None:
         # TODO: Warn user if their is chance of possible internal confusion between palm time and unix time
-        assert isinstance(value, datetime)
-
         timestamp = datetime_to_palm(value)
         self._value = timestamp.to_bytes(self._size, "big")

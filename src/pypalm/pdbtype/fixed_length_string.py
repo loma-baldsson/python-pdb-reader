@@ -9,7 +9,6 @@ class FixedLengthString(PDBTypeBase):
         return self._value.decode("ascii")
 
     def setter(self, value: str) -> None:
-        assert isinstance(value, str), "Value isn't a string"
         assert len(value) == self._size, f"Value isn't the correct length ({self._size})"
         assert value.isascii(), "Value isn't ascii"
 

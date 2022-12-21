@@ -20,7 +20,6 @@ class PDBTypeBase:
         return self._value
 
     def setter_bytes(self, value: bytes) -> None:
-        assert isinstance(value, bytes), "Value isn't a byte sequence"
         assert len(value) == self._size, f"Value isn't the correct length ({self._size})"
 
         self._value = value
