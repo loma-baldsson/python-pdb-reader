@@ -29,6 +29,9 @@ class PDBTypeBase:
     def __ge__(self, other):
         return self.getter() >= other.getter()
 
+    def __repr__(self):
+        return f"{type(self).__name__}({self.getter()!r})"
+
     def get_default(self) -> Any:
         raise AttributeError(f"No default value for type {type(self).__name__}")
 
