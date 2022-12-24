@@ -11,23 +11,10 @@ class PDBTypeBase:
         else:
             self.setter(self.get_default())
 
-    def __lt__(self, other):
-        return self.getter() < other.getter()
-
-    def __le__(self, other):
-        return self.getter() <= other.getter()
-
     def __eq__(self, other):
-        return self.getter() == other.getter()
-
-    def __ne__(self, other):
-        return self.getter() != other.getter()
-
-    def __gt__(self, other):
-        return self.getter() > other.getter()
-
-    def __ge__(self, other):
-        return self.getter() >= other.getter()
+        # directly compare the underlying byte objects
+        # this handles edge cases where comparing two different types might result in true being returned
+        return self._value == other._value
 
     def __repr__(self):
         return f"{type(self).__name__}({self.getter()!r})"
