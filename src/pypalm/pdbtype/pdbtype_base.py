@@ -2,10 +2,14 @@ from typing import Any
 
 
 class PDBTypeBase:
-    def __init__(self, size: int):
+    def __init__(self, size: int, value: Any = None):
         self._size: int = size
         self._value: bytes
-        self.setter(self.get_default())
+
+        if value:
+            self.setter(value)
+        else:
+            self.setter(self.get_default())
 
     def __lt__(self, other):
         return self.getter() < other.getter()
