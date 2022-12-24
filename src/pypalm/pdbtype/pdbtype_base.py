@@ -7,6 +7,24 @@ class PDBTypeBase:
         self._value: bytes
         self.setter(self.get_default())
 
+    def __lt__(self, other):
+        return self.getter() < other.getter()
+
+    def __le__(self, other):
+        return self.getter() <= other.getter()
+
+    def __eq__(self, other):
+        return self.getter() == other.getter()
+
+    def __ne__(self, other):
+        return self.getter() != other.getter()
+
+    def __gt__(self, other):
+        return self.getter() > other.getter()
+
+    def __ge__(self, other):
+        return self.getter() >= other.getter()
+
     def get_default(self) -> Any:
         raise AttributeError(f"No default value for type {type(self).__name__}")
 

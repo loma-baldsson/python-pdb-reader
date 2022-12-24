@@ -76,6 +76,9 @@ class Template:
 
         return out
 
+    def __eq__(self, other):
+        return self._items == other._items
+
     def load_values(self, **kwargs):
         for key, value in kwargs.items():
             if key in self._items:
