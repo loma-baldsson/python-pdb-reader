@@ -1,7 +1,7 @@
 from typing import Any
 
 from ..pdbtype import PDBTypeBase, FixedLengthString, NullTerminatedString, Word, DWord, PalmTime
-from ..pdbheaders import FileLoadedTemplate
+from ..pdbtemplates import FileLoadedTemplate
 
 
 class PDBHeader(FileLoadedTemplate):
