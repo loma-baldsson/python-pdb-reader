@@ -1,6 +1,6 @@
 from typing import Any, Iterable
 
-from .. import PDBTypeBase
+from ..pdbtype import PDBTypeBase
 
 BYTES_SUFFIX = "_bytes"
 

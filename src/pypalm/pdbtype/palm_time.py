@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from . import PDBTypeBase
-from .. import palm_to_datetime, datetime_to_palm
+from ..pdbconvert import palm_to_datetime, datetime_to_palm
 
 
 class PalmTime(PDBTypeBase):

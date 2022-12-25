@@ -1,7 +1,7 @@
 from typing import Any
 
-from .. import BigEndianInt, Byte, DWord, FileLoadedTemplate, PDBTypeBase
-
+from ..pdbtype import PDBTypeBase, BigEndianInt, Byte, DWord
+from ..pdbtemplates import FileLoadedTemplate
 
 class RecordHeader(FileLoadedTemplate):
     def __init__(self, **kwargs: Any):
