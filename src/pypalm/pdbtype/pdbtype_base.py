@@ -17,7 +17,7 @@ class PDBTypeBase:
         return self._value == other._value
 
     def __repr__(self):
-        return f"{type(self).__name__}({self.getter()!r})"
+        return f"{type(self).__name__}({self._size}, {self.getter()!r})"
 
     def get_default(self) -> Any:
         raise AttributeError(f"No default value for type {type(self).__name__}")
