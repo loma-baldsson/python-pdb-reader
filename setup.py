@@ -5,8 +5,8 @@ from setuptools import setup, find_packages
 import pathlib
 
 here = pathlib.Path(__file__).parent.resolve()
-
 long_description = (here / "README.md").read_text(encoding="utf-8")
+requirements = (here / "requirements.txt").read_text(encoding="utf-8").splitlines()
 
 setup(
     name="pypalm",
@@ -36,7 +36,7 @@ setup(
     package_data={
         "pypalm": ["py.typed"],
     },
-    install_requires=["pytest", "typing-extensions"],
+    install_requires=requirements,
     project_urls={
         "Bug Reports": "https://github.com/loma-baldsson/python-pdb-reader/issues",
     },
