@@ -1,47 +1,7 @@
-import datetime
 import sys
 from os import path
-from typing import Any
 
-from pypalm.pdbtype import FixedLengthString, NullTerminatedString, BigEndianInt, PalmTime, PDBTypeBase
 from pypalm.pdbheaders import PDBHeader, RecordHeader
-from pypalm.pdbtemplates import Template
-
-
-class Test(Template):
-    def __init__(self, **kwargs: Any):
-        super().__init__()
-        self._items: dict[str, PDBTypeBase] = {
-            "x": FixedLengthString(16),
-            "y": NullTerminatedString(16),
-            "z": BigEndianInt(2),
-            "date": PalmTime()
-        }
-
-        self.load_values(**kwargs)
-
-
-def test_template():
-    test = Test()
-
-    print(test.x)
-    print(test.x_bytes.hex(" "))
-    test.x = "HelloHelloHelloH"
-    print(test.x)
-    print(test.x_bytes.hex(" "))
-
-    print(test.y)
-    test.y = "Hello, World!"
-    print(test.y)
-    print(len(test.y_bytes))
-
-    test.z = 20
-    print(test.z)
-    print(test.z_bytes)
-
-    print(test.date)
-    test.date = datetime.datetime.now()
-    print(test.date)
 
 
 def main():
