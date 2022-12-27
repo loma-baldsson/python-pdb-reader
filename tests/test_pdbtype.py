@@ -120,7 +120,7 @@ class TestNullTerminatedString:
         assert obj._value == bytes.fromhex("74 65 73 74 00 00 00 00")
 
     @pytest.mark.parametrize("size,value", [(4, "test"), (4, "hello")])
-    def test_set_incorrect_length(self, size, value):
+    def test_set_incorrect_length(self, size: int, value: str):
         obj = NullTerminatedString(size)
 
         with pytest.raises(AssertionError):
@@ -134,7 +134,7 @@ class TestNullTerminatedString:
             obj.setter(bytes.fromhex("F0 9F A4 93").decode("utf-8"))
 
     @pytest.mark.parametrize("size,value", [(8, "hello\0"), (16, "test\0test")])
-    def test_set_early_null_char(self, size, value):
+    def test_set_early_null_char(self, size: int, value: str):
         obj = NullTerminatedString(size)
 
         with pytest.raises(AssertionError):

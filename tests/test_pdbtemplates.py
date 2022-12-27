@@ -1,4 +1,5 @@
 from hashlib import sha256
+from pathlib import Path
 
 import pytest
 
@@ -63,13 +64,13 @@ class TestTemplate:
 
 
 class TestFileLoadedTemplate:
-    def test_read_header(self, tmp_files):
+    def test_read_header(self, tmp_files: Path):
         with open(tmp_files / "test_file_loaded_header.bin", "rb") as f:
             header = ExampleFileLoadedHeader.load_from_file(f)
 
         assert header == SAMPLE_HEADER
 
-    def test_write_file(self, tmp_path):
+    def test_write_file(self, tmp_path: Path):
         # write the header to a temporary file
         test_path = tmp_path / "test_file_loaded_header.bin"
         with open(test_path, "wb") as f:
