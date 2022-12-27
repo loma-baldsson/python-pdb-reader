@@ -3,7 +3,7 @@ from typing import Any
 
 import pytest
 
-from pypalm.pdbtype import PDBTypeBase, BigEndianInt, PalmTime, FixedLengthString, NullTerminatedString
+from pypalmdb.pdbtype import PDBTypeBase, BigEndianInt, PalmTime, FixedLengthString, NullTerminatedString
 
 
 class ExamplePDBType(PDBTypeBase):

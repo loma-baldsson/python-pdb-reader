@@ -2,8 +2,8 @@ from hashlib import sha256
 
 import pytest
 
-from pypalm.pdbtemplates import Template, FileLoadedTemplate
-from pypalm.pdbtype import DWord
+from pypalmdb.pdbtemplates import Template, FileLoadedTemplate
+from pypalmdb.pdbtype import DWord
 from .test_files import tmp_files
 
 class ExampleHeader(Template):

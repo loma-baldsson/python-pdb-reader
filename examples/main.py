@@ -1,7 +1,7 @@
 import sys
 from os import path
 
-from pypalm.pdbheaders import PDBHeader, RecordHeader
+from pypalmdb.pdbheaders import PDBHeader, RecordHeader
 
 
 def main():

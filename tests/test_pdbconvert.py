@@ -2,7 +2,7 @@ from datetime import datetime
 
 import pytest
 
-from pypalm.pdbconvert import palm_to_datetime, datetime_to_palm
+from pypalmdb.pdbconvert import palm_to_datetime, datetime_to_palm
 
 
 class TestPDBConvert:

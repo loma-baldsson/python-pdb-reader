@@ -1,7 +1,7 @@
 from datetime import datetime
 from hashlib import sha256
 
-from pypalm.pdbheaders import PDBHeader
+from pypalmdb.pdbheaders import PDBHeader
 from .test_files import tmp_files
 
 SAMPLE_TIME = datetime(2022, 12, 23)
