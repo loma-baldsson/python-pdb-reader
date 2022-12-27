@@ -9,7 +9,7 @@ long_description = (here / "README.md").read_text(encoding="utf-8")
 requirements = (here / "requirements.txt").read_text(encoding="utf-8").splitlines()
 
 setup(
-    name="pypalmdbdb",
+    name="pypalmdb",
     version="0.0.1a1",
     description="A (currently unfinished) python interface for the Palm DB format.",
     long_description=long_description,
@@ -34,7 +34,7 @@ setup(
     package_dir={"": "src"},
     packages=find_packages(where="src"),
     package_data={
-        "pypalmdbdb": ["py.typed"],
+        "pypalmdb": ["py.typed"],
     },
     install_requires=requirements,
     project_urls={
